@@ -2,11 +2,18 @@
 
 Aplicação de Teste MPI rodando via Docker 
 
-Para fazer o build e testar use os comandos
 
 ```bash
-cd desenv/src/main/c
+./start_container.sh /Users/parana/.ssh/id_rsa.pub
+```
+
+Para fazer o build dos programas de teste e executá-los use os comandos abaixo dentro do contêiner
+
+```bash
+cd desenv/mpi/src/main/c
 ./build.sh
 ```
 
-Veja o [desenv/src/main/c/build.sh](desenv/src/main/c/build.sh)
+Veja o [desenv/mpi/src/main/c/build.sh](desenv/mpi/src/main/c/build.sh)
+
+

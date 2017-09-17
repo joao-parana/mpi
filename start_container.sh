@@ -31,5 +31,5 @@ echo "••• This way you can SSH to container using a comand like this:     
 echo "••• ssh -p 32768 app@localhost                                                    ••• "
 echo "••• In this example the port was 32768                                            ••• "
 echo "••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• "
-docker run -v $PWD/desenv:/home/app/desenv/mpi -P --privileged -e AUTHORIZED_KEY="$THEKEY" parana/$imagename
+docker run -v $PWD/desenv/mpi:/home/app/desenv/mpi -P --privileged -e AUTHORIZED_KEY="$THEKEY" parana/$imagename
 
