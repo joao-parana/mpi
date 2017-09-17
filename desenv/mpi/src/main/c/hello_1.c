@@ -1,7 +1,7 @@
 /*
   "Hello World" MPI Test Program
 
-  To run with 4 cores use: mpicc example.c && mpiexec -n 4 ./a.out
+  To run with 4 cores use: mpicc hello_1.c && mpiexec -n 4 ./a.out
 */
 
 #include <assert.h>
@@ -9,11 +9,21 @@
 #include <string.h>
 #include <mpi.h>
 
+void doSomeWork(int counter)
+{
+    char tmp[256];
+
+    printf("I'm doing some work: %d\n", counter);
+
+    int j = 0;
+    for (; j < counter; j++) {
+        sprintf(tmp, "I'm PI  %f!", 3.1416);
+    } 
+}
+
 int main(int argc, char **argv)
 {
     char buf[256];
-    char tmp[256];
-
     int my_rank, num_procs;
 
     /* Initialize the infrastructure necessary for communication */
@@ -37,6 +47,10 @@ int main(int argc, char **argv)
             sprintf(buf, "Hello %i!", other_rank);
             MPI_Send(buf, sizeof(buf), MPI_CHAR, other_rank,
                      0, MPI_COMM_WORLD);
+            printf("MPI_Send message to %d\n", other_rank);
+            if (other_rank == (num_procs - 2)) {
+                doSomeWork(10000000);
+            }
         }
 
         /* Receive messages from all other process */
@@ -44,15 +58,13 @@ int main(int argc, char **argv)
         {
             MPI_Recv(buf, sizeof(buf), MPI_CHAR, other_rank,
                      0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            printf("MPI_Recv from %d\n", other_rank);
             printf("%s\n", buf);
         }
 
     } else {
         if (my_rank == 2) {
-            int j = 0;
-            for (; j < 10000000; j++) {
-                sprintf(tmp, "I'm PI  %f!", 3.1416);
-            } 
+            doSomeWork(10000000);
         }
 
         /* Receive message from process #0 */
