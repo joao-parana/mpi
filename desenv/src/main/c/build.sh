@@ -1,1 +1,1 @@
-mpicc hello.c && mpiexec -n 4 ./a.out
+mpicc hello.c -o test && mpiexec -n 4 ./test
