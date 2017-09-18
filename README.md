@@ -31,12 +31,24 @@ Exemplo com 13 sub-intervalos e 4 processadores:
 * rank 2: 3, 7, 11
 * rank 3: 4, 8, 12
 
+Para testar com 4 processadores e e treze subintervalos faça:
+
+```bash
+mpiexec -n 4 ./test_3 13
+```
+
 Para testar como o erro diminui a medida que aumentamos o número de 
 sub-intervalos podemos executar:
 
 ```bash
 for a in 5 25 50 250 500 2500 5000 25000 50000 250000 500000 2500000
 do 
-  ./test_3 $a 
+  mpiexec -n 1  ./test_3 $a 
 done | grep "Error is"
+```
+
+Para conseguir um dos menores erros possíveis use 9.300.000.000 de subintervalos:
+
+```bash
+mpiexec -n 5 ./test_3 9300000000
 ```

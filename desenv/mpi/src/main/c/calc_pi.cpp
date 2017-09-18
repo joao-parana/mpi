@@ -28,7 +28,7 @@ int main(int argc, char **argv)   {
 
     gethostname(hostname, 128);
 
-    cout << "Hello from process " << rank << " of " << size << " on " << processor_name << " of " << hostname << endl;
+    cout << "Hello from process " << rank << " of " << size << " on " << processor_name << " of " << hostname << endl << std::flush;
 
     if (rank == 0) {
         // cout << "Enter the number of intervals: (0 quits) "; 
@@ -59,7 +59,8 @@ int main(int argc, char **argv)   {
         // root_process: Root process, it ends up storing the result
         MPI_Reduce(&mypi, &pi, instances, MPI_DOUBLE, MPI_SUM, root_process, MPI_COMM_WORLD);
         if (rank == 0)  {
-            cout << "pi is approximately " << fabs(pi) << ", Error is " << fabs(pi - PI25DT) << endl;
+            cout.precision(17);
+            cout << "pi is approximately " << fabs(pi) << ", Error is " << fabs(pi - PI25DT) << " because π = 3.141592653589793238462643 " << endl;
         }
     }
 
