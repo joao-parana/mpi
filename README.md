@@ -2,10 +2,35 @@
 
 Aplicação de Teste MPI rodando via Docker 
 
+## Criando e iniciando o Contêiner
+
+Na primeira vez fazer:
 
 ```bash
-./start_container.sh /Users/parana/.ssh/id_rsa.pub
+docker build -t parana/mpi .  && \
+    ./start_container.sh /Users/${USER}/.ssh/id_rsa.pub
 ```
+
+Isso cria a imagem e inicia o contêiner.
+
+Nas outras vezes basta iniciar o contêiner
+
+```bash
+./start_container.sh /Users/${USER}/.ssh/id_rsa.pub
+```
+
+Observe que deve existir um par de chaves RSA geradas pelo OpneSSH no seu diretório HOME.
+
+No Windows você deve ter instalado o MSYS ou o **git-bash** que pode ser obtido
+com [https://git-scm.com/download/win](https://git-scm.com/download/win).
+
+Para ver as imagens Docker geradas use o comando:
+
+```bash
+docker images | grep parana
+```
+
+## Testando o MPI
 
 Para fazer o build dos programas de teste e executá-los use os comandos abaixo dentro do contêiner
 
@@ -17,6 +42,8 @@ cd desenv/mpi/src/main/c
 Veja o [desenv/mpi/src/main/c/build.sh](desenv/mpi/src/main/c/build.sh)
 
 ### Calculo aproximado de PI
+
+Exemplo baseado [neste PDF](http://sbel.wisc.edu/Courses/ME964/2013/Lectures/lecture1030.pdf)
 
 ![approximating-PI](docs/approximating-PI.png)
 
