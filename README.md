@@ -20,7 +20,7 @@ Veja o [desenv/mpi/src/main/c/build.sh](desenv/mpi/src/main/c/build.sh)
 
 ![approximating-PI](docs/approximating-PI.png)
 
-Um dos exemplos (`calc_pi.cpp`) mostra como usar Broadcast (`MPI_Bcast`) e Reduce (`MPI_Reduce`) 
+Um dos exemplos ( [`calc_pi.cpp`](desenv/mpi/src/main/c/calc_pi.cpp) ) mostra como usar Broadcast (`MPI_Bcast`) e Reduce (`MPI_Reduce`) 
 para calcular o valor de PI por aproximações com sub-intervalos assinaladosaos *ranks* 
 usando **round-robin**
 
