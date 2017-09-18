@@ -1,10 +1,25 @@
-# mpi
+# mpi no Ubuntu 16.04 via Docker
 
-Aplicação de Teste MPI rodando via Docker 
+Enquanto a versão do MPI para macOS e Linux está na versão 3.2 
+o porte para Windows ainda está na versão 1.0.3
+
+Por este motivo pode ser util usar o MPI num contêiner Docker com Ubuntu 16.04
+
+Este repositório provê esta funcionalidade com algumas aplicações
+de teste MPI rodando num contêiner Docker 
 
 ## Criando e iniciando o Contêiner
 
-Na primeira vez fazer:
+Na primeira vez fazer simplesmente:
+
+```bash
+./start_container.sh /Users/${USER}/.ssh/id_rsa.pub
+```
+
+A shell bash acima irá executar implicitamente o comando `docker pull parana/mpi` na primeira vez.
+
+Porém, se desejar criar o contêiner localmente para ajustar o Dockerfile 
+as suas necessidades faça o seguinte:
 
 ```bash
 docker build -t parana/mpi .  && \
@@ -30,6 +45,7 @@ Para ver as imagens Docker geradas use o comando:
 docker images | grep parana
 ```
 
+Para inspecionar quais contêineres estão executando e quais estão parados execute `docker ps -a`
 ## Testando o MPI
 
 Para fazer o build dos programas de teste e executá-los use os comandos abaixo dentro do contêiner
@@ -79,3 +95,4 @@ Para conseguir um dos menores erros possíveis use 9.300.000.000 de subintervalo
 ```bash
 mpiexec -n 5 ./test_3 9300000000
 ```
+
