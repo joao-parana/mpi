@@ -8,6 +8,9 @@ Por este motivo pode ser util usar o MPI num contêiner Docker com Ubuntu 16.04
 Este repositório provê esta funcionalidade com algumas aplicações
 de teste MPI rodando num contêiner Docker 
 
+Um video mostrando como usar este repositório pode ser visto 
+em [docs/how-to-use-this-repo-480p.mov](docs/how-to-use-this-repo-480p.mov)
+
 ## Criando e iniciando o Contêiner
 
 Na primeira vez fazer simplesmente:
@@ -16,7 +19,9 @@ Na primeira vez fazer simplesmente:
 ./start_container.sh /Users/${USER}/.ssh/id_rsa.pub
 ```
 
-A shell bash acima irá executar implicitamente o comando `docker pull parana/mpi` na primeira vez.
+A shell bash acima irá executar implicitamente o comando
+`docker pull parana/mpi` na primeira vez. A imagem será
+obtida de [https://hub.docker.com/u/parana/](https://hub.docker.com/u/parana/)
 
 Porém, se desejar criar o contêiner localmente para ajustar o Dockerfile 
 as suas necessidades faça o seguinte:
