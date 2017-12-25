@@ -9,7 +9,13 @@ Este repositório provê esta funcionalidade com algumas aplicações
 de teste MPI rodando num contêiner Docker 
 
 Um video mostrando como usar este repositório pode ser visto 
-em [docs/how-to-use-this-repo-480p.mov](docs/how-to-use-this-repo-480p.mov)
+em [docs/how-to-use-this-repo-480p.mov](docs/how-to-use-this-repo-480p.mov) mas
+como o formato não é suportado pelo GitHub você terá de baixá-lo com
+
+```bash
+wget https://raw.githubusercontent.com/joao-parana/mpi/master/docs/how-to-use-this-repo-480p.mov
+```
+
 
 ## Criando e iniciando o Contêiner
 

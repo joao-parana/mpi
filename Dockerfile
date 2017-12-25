@@ -16,7 +16,7 @@
 
 FROM parana/torque
 
-MAINTAINER João Antonio Ferreira <joao.parana@>
+MAINTAINER João Antonio Ferreira <joao.parana@gmail.com>
 
 # Install required packages
 
